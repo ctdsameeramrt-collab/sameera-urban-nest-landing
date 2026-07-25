@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  
+  /* Redesigned Complete Luxury Brand Palette */
+  --color-brand-green: #171717;         /* Map brand green to deep heading/charcoal-black by default for text utilities */
+  --color-deep-green: #0E3B2E;          /* Deep forest green: #0E3B2E */
+  --color-bright-green: #1E8B57;        /* Luxe CTA green: #1E8B57 */
+  
+  --color-charcoal: #3A3A3A;            /* Soft charcoal text: #3A3A3A */
+  --color-warm-cream: #F7F3EA;          /* Warm cream background: #F7F3EA */
+  --color-light-stone: #EFEEEA;         /* Light stone background: #EFEEEA */
+  --color-white: #FFFFFF;
+  --color-muted-sage: #3A3A3A;          /* Soft charcoal text: #3A3A3A */
+
+  /* Premium Brand Colors */
+  --color-heritage-maroon: #8E2F33;     /* Deep maroon / wine: #8E2F33 */
+  --color-antique-gold: #D49B28;        /* Richer, warm metallic amber-gold: #D49B28 */
+  --color-warm-ivory: #F6F1E8;          /* Warm ivory background: #F6F1E8 */
+  --color-rich-espresso: #171717;       /* Charcoal black: #171717 */
+  --color-champagne-white: #FAF8F5;     /* Form/card areas soft cream/ivory instead of pure white */
+
+  /* Soft Layered Luxury Shadows (Tight low-opacity + wider ambient shadow) */
+  --shadow-sm: 0 2px 8px -1px rgba(14, 59, 46, 0.05), 0 1px 3px rgba(0,0,0,0.02);
+  --shadow-md: 0 10px 24px -4px rgba(14, 59, 46, 0.07), 0 3px 8px -2px rgba(14, 59, 46, 0.03);
+  --shadow-lg: 0 16px 32px -6px rgba(14, 59, 46, 0.09), 0 4px 12px -2px rgba(14, 59, 46, 0.04);
+  --shadow-xl: 0 22px 44px -8px rgba(14, 59, 46, 0.12), 0 6px 18px -3px rgba(14, 59, 46, 0.05);
+
+  /* Backwards-compatibility mappings */
+  --color-forest: #0E3B2E;              /* Deep forest green: #0E3B2E */
+  --color-forest-light: #1E8B57;        /* Luxe CTA green: #1E8B57 */
+  --color-forest-dark: #145A3A;         /* Dark jade hover: #145A3A */
+  --color-gold: #D49B28;                /* Richer warm metallic amber-gold: #D49B28 */
+  --color-gold-light: #E2AD3D;          /* Lighter amber-gold highlight */
+  --color-gold-dark: #8E2F33;           /* Deep maroon / wine: #8E2F33 */
+  --color-cream: #F6F1E8;               /* Warm ivory background: #F6F1E8 */
+  --color-clay: #3A3A3A;                /* Soft charcoal text: #3A3A3A */
+  --color-cream-dark: #F6F1E8;          /* Warm ivory background: #F6F1E8 */
+}
+
+/* Base resets & styles matching our luxury real estate branding */
+body {
+  font-family: var(--font-sans);
+  background-color: #F6F1E8;            /* Warm ivory background base */
+  background-image: radial-gradient(circle at 50% 0%, #FAF6EE 0%, #F6F1E8 65%, #F2EBDE 100%);
+  background-attachment: fixed;
+  color: #3A3A3A;                       /* Soft charcoal text */
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: #171717;            /* Charcoal black */
+}
+
+/* Retain white for headings in dark or CTA blocks */
+.text-white, .text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6,
+.bg-forest h1, .bg-forest h2, .bg-forest h3, .bg-forest h4, .bg-forest h5, .bg-forest h6,
+.bg-signature-green-gradient h1, .bg-signature-green-gradient h2, .bg-signature-green-gradient h3, .bg-signature-green-gradient h4, .bg-signature-green-gradient h5, .bg-signature-green-gradient h6,
+.bg-deep-green h1, .bg-deep-green h2, .bg-deep-green h3, .bg-deep-green h4, .bg-deep-green h5, .bg-deep-green h6,
+.bg-forest-dark h1, .bg-forest-dark h2, .bg-forest-dark h3, .bg-forest-dark h4, .bg-forest-dark h5, .bg-forest-dark h6,
+#hero-section h1, #hero-section h2, #hero-section h3, #hero-section h4, #hero-section h5, #hero-section h6 {
+  color: #FFFFFF !important;
+}
+
+/* Ensure headings inside light cards have robust dark contrast */
+#lead-form-container h1, #lead-form-container h2, #lead-form-container h3, #lead-form-container h4, #lead-form-container h5, #lead-form-container h6,
+#lead-form-hero h1, #lead-form-hero h2, #lead-form-hero h3, #lead-form-hero h4, #lead-form-hero h5, #lead-form-hero h6 {
+  color: #171717 !important; /* Charcoal black */
+}
+
+/* Preserve custom antique gold highlights */
+.text-gold, .text-antique-gold, .text-gold h1, .text-gold h2 {
+  color: #D49B28 !important;
+}
+
+/* Override border colors with champagne gold tint */
+.border-brand-green\/10, .border-brand-green\/15, .border-brand-green\/20, .border-brand-green\/25, .border-brand-green\/30, .border-brand-green\/40,
+.border-antique-gold\/10, .border-antique-gold\/15, .border-antique-gold\/20, .border-antique-gold\/25, .border-antique-gold\/30, .border-antique-gold\/40,
+.border-white\/10, .border-white\/15, .border-white\/20, .border-white\/25, .border-white\/30 {
+  border-color: rgba(212, 155, 40, 0.25) !important;
+}
+
+/* Subtle champagne borders */
+.border {
+  border-color: rgba(212, 155, 40, 0.22) !important;
+}
+
+/* Alternating rhythmic section backgrounds with subtle warm radial gradients */
+#location-advantages {
+  background-color: #F6F1E8 !important;
+  background-image: radial-gradient(circle at 50% 20%, #FAF6EE 0%, #F6F1E8 100%) !important;
+}
+
+#key-usps {
+  background-color: #FAF8F5 !important;
+  background-image: radial-gradient(circle at 50% 30%, #FCFAF6 0%, #FAF8F5 100%) !important;
+}
+
+#pricing {
+  background-color: #F6F1E8 !important;
+  background-image: radial-gradient(circle at 50% 20%, #FAF6EE 0%, #F6F1E8 100%) !important;
+}
+
+#layout-amenities {
+  background-color: #FAF8F5 !important;
+  background-image: radial-gradient(circle at 50% 30%, #FCFAF6 0%, #FAF8F5 100%) !important;
+}
+
+#testimonials {
+  background-color: #F6F1E8 !important;
+  background-image: radial-gradient(circle at 50% 20%, #FAF6EE 0%, #F6F1E8 100%) !important;
+}
+
+#faq {
+  background-color: #FAF8F5 !important;
+  background-image: radial-gradient(circle at 50% 30%, #FCFAF6 0%, #FAF8F5 100%) !important;
+}
+
+/* Rich Signature Green to Deep Forest Green full-section background gradient */
+.bg-signature-green-gradient {
+  background-image: linear-gradient(135deg, #135C3A 0%, #0E472C 100%) !important;
+}
+
+/* Hero Section Base */
+#hero-section {
+  background-color: #0E3B2E !important;
+  background-image: none !important;
+}
+
+/* Header/Navbar: Semi-transparent Forest Green with soft 1-2px bottom gradient shadow */
+header.fixed {
+  transition: all 200ms ease-out !important;
+}
+
+header.fixed.bg-deep-green\/95 {
+  background-color: rgba(14, 59, 46, 0.92) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(212, 155, 40, 0.22) !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Header nav links smooth 200ms hover transitions */
+.header-nav-link {
+  transition: all 200ms ease-out !important;
+}
+.header-nav-link:hover {
+  color: #D49B28 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Mobile dropdown glass effect */
+header.fixed .md\:hidden.bg-deep-green, header.fixed .bg-deep-green {
+  background-color: rgba(14, 59, 46, 0.95) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(212, 155, 40, 0.25) !important;
+}
+
+/* Buttons: Luxe CTA gradient with smooth 200ms ease-out hover transitions */
+.bg-brand-green, .bg-bright-green {
+  background-image: linear-gradient(to bottom, #1E8B57 0%, #0E3B2E 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 6px 18px -2px rgba(14, 59, 46, 0.3), 0 2px 6px -1px rgba(14, 59, 46, 0.15) !important;
+  border: 1px solid rgba(212, 155, 40, 0.3) !important;
+  transition: all 200ms ease-out !important;
+}
+
+.bg-brand-green:hover, .bg-bright-green:hover,
+.hover\:bg-brand-green:hover, .hover\:bg-bright-green:hover {
+  background-image: linear-gradient(to bottom, #145A3A 0%, #09261E 100%) !important;
+  box-shadow: 0 10px 24px -2px rgba(212, 155, 40, 0.45), 0 4px 12px -2px rgba(14, 59, 46, 0.2) !important;
+  border-color: rgba(212, 155, 40, 0.7) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Layered soft shadows with 200ms ease-out hover transitions */
+.shadow-sm {
+  box-shadow: var(--shadow-sm) !important;
+  transition: box-shadow 200ms ease-out, transform 200ms ease-out !important;
+}
+.shadow-md {
+  box-shadow: var(--shadow-md) !important;
+  transition: box-shadow 200ms ease-out, transform 200ms ease-out !important;
+}
+.shadow-md:hover {
+  box-shadow: var(--shadow-xl) !important;
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg) !important;
+  transition: box-shadow 200ms ease-out, transform 200ms ease-out !important;
+}
+.shadow-lg:hover {
+  box-shadow: var(--shadow-xl) !important;
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl) !important;
+  transition: box-shadow 200ms ease-out, transform 200ms ease-out !important;
+}
+
+/* Unified card transition & hover lift rules */
+[class*="rounded-xl"], [class*="rounded-lg"], [class*="rounded-2xl"] {
+  transition: box-shadow 200ms ease-out, transform 200ms ease-out, border-color 200ms ease-out !important;
+}
+
+/* Lead Form Redesign */
+#lead-form-container, #lead-form-hero {
+  background-color: #FAF8F5 !important;
+  border: 1px solid rgba(212, 155, 40, 0.35) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+#lead-form-container input, #lead-form-hero input,
+#lead-form-container select, #lead-form-hero select {
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(212, 155, 40, 0.3) !important;
+  color: #171717 !important;
+  transition: all 200ms ease-out !important;
+}
+
+#lead-form-container input:focus, #lead-form-hero input:focus,
+#lead-form-container select:focus, #lead-form-hero select:focus {
+  border-color: #D49B28 !important;
+  box-shadow: 0 0 0 3px rgba(212, 155, 40, 0.2) !important;
+  outline: none !important;
+}
+
+/* Highlights & badges in Gold */
+.bg-brand-green\/10 {
+  background-color: rgba(14, 59, 46, 0.08) !important;
+}
+.text-brand-green {
+  color: #171717 !important;
+}
+
+.text-gold, .text-antique-gold {
+  color: #D49B28 !important;
+}
+.bg-antique-gold\/20, .bg-gold\/10 {
+  background-color: rgba(212, 155, 40, 0.15) !important;
+}
+
+.bg-heritage-maroon, .bg-gold-dark {
+  background-color: #8E2F33 !important;
+  border-color: rgba(212, 155, 40, 0.3) !important;
+}
+.text-heritage-maroon, .text-gold-dark {
+  color: #8E2F33 !important;
+}
+
